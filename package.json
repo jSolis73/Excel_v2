@@ -6,7 +6,11 @@
   "dependencies": {},
   "devDependencies": {
     "css-loader": "^3.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^4.0.0-beta.8",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
@@ -16,16 +20,16 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack --watch"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jSolis73/excelOnJs.git"
+    "url": "git+https://github.com/jSolis73/Excel_v2.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jSolis73/excelOnJs/issues"
+    "url": "https://github.com/jSolis73/Excel_v2/issues"
   },
-  "homepage": "https://github.com/jSolis73/excelOnJs#readme"
+  "homepage": "https://github.com/jSolis73/Excel_v2#readme"
 }
