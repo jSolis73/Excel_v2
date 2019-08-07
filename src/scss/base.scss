@@ -1,0 +1,67 @@
+$borderRadius: 5px;
+main {
+	width: 1000px;
+	height: 800px;
+	border: 1px solid black;
+	margin: 5% 25% 0 25%;
+	border-radius: $borderRadius;
+}
+
+.buttonMenu {
+	border: 1px solid rgb(218, 10, 10);
+	height: 200px;
+}
+
+.formulaField {
+	border: 1px solid green;
+	height: 50px;
+	width: 99.8%;
+}
+
+.table {
+	border: 1px solid  rgb(15, 15, 236);
+	height: 800px - 202px - 52px;
+	background-color: #c7c3c3;
+}
+
+ .formula {
+	width: 600px;
+	height: 30px;
+	border: 1px solid #646363;
+	border-radius: $borderRadius;
+	margin: auto;
+	margin-top: 6px;
+	display: block;
+	font-size: 20px;
+	padding: 3px 5px;
+	outline: none; 
+}
+
+table {
+	width: 900px;
+	margin: auto;
+	margin-top: 13px;
+	border-collapse: collapse;
+}
+
+table td {
+	padding: 0px 0px;
+}
+
+.ceil {
+	margin: 0 0 0 0 ;
+	width: 90px;
+	height: 20px;
+	padding-left: 2px;
+	// background: #c7c7c7;
+}
+
+.ceil:focus {
+	border: 2px solid blue;
+	cursor: default;
+}
+
+.ceil:hover, .table td {
+	cursor: default;	
+}
+
