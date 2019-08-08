@@ -1,9 +1,7 @@
 $borderRadius: 5px;
 main {
-	width: 1000px;
-	height: 800px;
+	width: 100%;
 	border: 1px solid black;
-	margin: 5% 25% 0 25%;
 	border-radius: $borderRadius;
 }
 
@@ -15,14 +13,52 @@ main {
 .formulaField {
 	border: 1px solid green;
 	height: 50px;
-	width: 99.8%;
+	width: 100%;
 }
 
 .table {
 	border: 1px solid  rgb(15, 15, 236);
-	height: 800px - 202px - 52px;
 	background-color: #c7c3c3;
+	display: table;
+	width: 100%;
+	box-sizing: border-box;
 }
+
+.tr {
+	display: table-row;
+}
+
+.trTh {
+	display: table-cell;
+	border: 1px solid black;
+	text-align: center;
+	width: 10px;
+	height: 30px;
+	background-color: #ac93f0;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.tdTh {
+	display: table-cell;
+	border: 1px solid black;
+	text-align: center;
+	width: 43px;
+	height: 30px;
+	background-color: #ac93f0;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.td {
+	display: table-cell;
+	border: 1px solid black;
+	text-align: center;
+	width: 43px;
+	height: 30px;
+	vertical-align: middle;
+}
+
 
  .formula {
 	width: 600px;
@@ -36,32 +72,3 @@ main {
 	padding: 3px 5px;
 	outline: none; 
 }
-
-table {
-	width: 900px;
-	margin: auto;
-	margin-top: 13px;
-	border-collapse: collapse;
-}
-
-table td {
-	padding: 0px 0px;
-}
-
-.ceil {
-	margin: 0 0 0 0 ;
-	width: 90px;
-	height: 20px;
-	padding-left: 2px;
-	// background: #c7c7c7;
-}
-
-.ceil:focus {
-	border: 2px solid blue;
-	cursor: default;
-}
-
-.ceil:hover, .table td {
-	cursor: default;	
-}
-
