@@ -11,7 +11,7 @@ export function createTable(parent, rowCount, ceilCount) {
     }
   }
   trTh += '</div>';
-  elem.innerHTML += trTh; 
+  elem.innerHTML += trTh;
   for (let j = 0; j < rowCount; j++) {
     let tr = `<div class="tr"><div class="trTh">${j + 1}</div>`;
     for (let k = 0; k < ceilCount; k++) {
