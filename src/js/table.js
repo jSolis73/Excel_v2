@@ -1,6 +1,5 @@
-export const elem = document.querySelector('#table');
-
-export function createTable(parent, rowCount, ceilCount) {
+export default function createTable(parent, rowCount, ceilCount) {
+  const elem = document.querySelector('#table');
   let trTh = '<div class="tr">';
   for (let i = 0; i < ceilCount + 1; i++) {
     const arr = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
