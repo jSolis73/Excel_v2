@@ -1,76 +1,72 @@
 $borderRadius: 5px;
+$border: 1px solid;
+@mixin text-align {
+	text-align: center;
+	vertical-align: middle;
+}
+
 main {
 	width: 100%;
-	border: 1px solid black;
+	border: $border black;
 	border-radius: $borderRadius;
 }
 
 .buttonMenu {
-	border: 1px solid rgb(218, 10, 10);
+	border: $border rgb(218, 10, 10);
 	height: 200px;
 }
 
 .formulaField {
-	border: 1px solid green;
+	border: $border green;
 	height: 50px;
 	width: 100%;
+
+	.formula {
+		width: 600px;
+		height: 30px;
+		border: $border #646363;
+		border-radius: $borderRadius;
+		margin: 6px auto;
+		display: block;
+		font-size: 20px;
+		padding: 3px 5px;
+		outline: none; 
+	}
 }
 
 .table {
-	border: 1px solid  rgb(15, 15, 236);
+	border: $border  rgb(15, 15, 236);
 	background-color: #c7c3c3;
 	display: table;
 	width: 100%;
-	box-sizing: border-box;
-}
 
-.tr {
-	display: table-row;
-}
+	.tr {
+		display: table-row;
+		height: 30px;
 
-.trTh {
-	display: table-cell;
-	border: 1px solid black;
-	text-align: center;
-	width: 5px;
-	height: 30px;
-	background-color: #ac93f0;
-	font-weight: bold;
-	vertical-align: middle;
-}
+		.trTh {
+			display: table-cell;
+			border: $border black;
+			@include text-align;
+			width: 16px;
+			background-color: #ac93f0;
+			font-weight: bold;
+		}
 
-.tdTh {
-	display: table-cell;
-	border: 1px solid black;
-	text-align: center;
-	width: 43px;
-	height: 30px;
-	background-color: #ac93f0;
-	font-weight: bold;
-	vertical-align: middle;
-}
+		.tdTh {
+			display: table-cell;
+			border: $border black;
+			@include text-align;
+			width: 92px;
+			background-color: #ac93f0;
+			font-weight: bold;
+		}
 
-.td {
-	display: table-cell;
-	border: 1px solid black;
-	text-align: center;
-	width: 90px;
-	height: 30px;
-	vertical-align: middle;
-	max-width: 90px;
-	white-space: nowrap;
-
-}
-
- .formula {
-	width: 600px;
-	height: 30px;
-	border: 1px solid #646363;
-	border-radius: $borderRadius;
-	margin: auto;
-	margin-top: 6px;
-	display: block;
-	font-size: 20px;
-	padding: 3px 5px;
-	outline: none; 
+		.td {
+			display: table-cell;
+			border: $border black;
+			@include text-align;
+			white-space: nowrap;
+		}
+	}
 }
