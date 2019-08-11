@@ -1,4 +1,4 @@
 import './scss/base.scss';
-import { elem, createTable } from './js/table.js';
+import createTable from './js/table';
 
-createTable(elem, 20, 10);
+createTable('#table', 20, 10);
