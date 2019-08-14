@@ -1,5 +1,6 @@
 $borderRadius: 5px;
 $border: 1px solid;
+$no-select: none;
 @mixin text-align {
 	text-align: center;
 	vertical-align: middle;
@@ -43,7 +44,8 @@ main {
 	.tr {
 		display: table-row;
 		height: 30px;
-
+		position: relative;
+		
 		.trTh {
 			display: table-cell;
 			border: $border black;
@@ -51,15 +53,26 @@ main {
 			width: 16px;
 			background-color: #ac93f0;
 			font-weight: bold;
+			user-select: $no-select;
 		}
 
 		.tdTh {
 			display: table-cell;
 			border: $border black;
 			@include text-align;
-			width: 92px;
 			background-color: #ac93f0;
 			font-weight: bold;
+			user-select: $no-select;
+
+			.resizeX {
+				float: right;
+				width: 4px;
+				height: 30px;
+
+				&:hover {
+					cursor: col-resize;
+				}
+			}
 		}
 
 		.td {

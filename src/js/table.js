@@ -5,7 +5,7 @@ export default function createTable(parent, rowCount, ceilCount) {
     if (i === 0) {
       trTh += '<div class="trTh"></div>';
     } else {
-      trTh += `<div class="tdTh">${String.fromCharCode('A'.charCodeAt(0) + i - 1)}</div>`;
+      trTh += `<div class="tdTh">${String.fromCharCode('A'.charCodeAt(0) + i - 1)}<div class="resizeX"></div></div>`;
     }
   }
   trTh += '</div>';
