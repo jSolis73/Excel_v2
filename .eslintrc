@@ -3,8 +3,10 @@
 	"env": {
 		"browser": true
 	},
+	
 	"rules": {
-	"no-inner-declarations": 0,
+	  "no-inner-declarations": 0,
+	  "no-plusplus": 0,
   }
 }
 

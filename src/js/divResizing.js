@@ -1,4 +1,4 @@
-export default function resizeDiv() {
+export default function resizeCells() {
   document.onmousedown = function clickDown(e) {
     const div = e.target.parentNode;
     const currentWidth = div.offsetWidth;
