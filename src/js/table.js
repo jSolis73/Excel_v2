@@ -11,7 +11,7 @@ export default function createTable(parent, rowCount, ceilCount) {
   trTh += '</div>';
   elem.innerHTML += trTh;
   for (let j = 0; j < rowCount; j++) {
-    let tr = `<div class="tr"><div class="trTh">${j + 1}</div>`;
+    let tr = `<div class="tr"><div class="trTh">${j + 1}<div class="resizeY"></div></div>`;
     for (let k = 0; k < ceilCount; k++) {
       tr += `<div class="td" contenteditable="true" id="${String.fromCharCode('A'.charCodeAt(0) + k) + (j + 1)}"></div>`;
     }
