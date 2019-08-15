@@ -1,13 +1,14 @@
 $borderRadius: 5px;
 $border: 1px solid;
 $no-select: none;
+$cellWidth: 120px;
 @mixin text-align {
 	text-align: center;
 	vertical-align: middle;
 }
 
 main {
-	width: 100%;
+	// width: 100%;
 	border: $border black;
 	border-radius: $borderRadius;
 }
@@ -20,7 +21,7 @@ main {
 .formulaField {
 	border: $border green;
 	height: 50px;
-	width: 100%;
+	// width: 100%;
 
 	.formula {
 		width: 600px;
@@ -38,16 +39,17 @@ main {
 .table {
 	border: $border  rgb(15, 15, 236);
 	background-color: #c7c3c3;
-	display: table;
-	width: 100%;
+	display: inline-flex;
+	flex-direction: column;
+	overflow-x: auto;
+	min-width: 100%;
 
 	.tr {
-		display: table-row;
+		display: flex;
 		height: 33px;
 		position: relative;
 		
 		.trTh {
-			display: table-cell;
 			border: $border black;
 			@include text-align;
 			width: 16px;
@@ -57,17 +59,21 @@ main {
 		}
 
 		.tdTh {
-			display: table-cell;
 			border: $border black;
 			@include text-align;
 			background-color: #ac93f0;
 			font-weight: bold;
 			user-select: $no-select;
+			position: relative;
+			min-width: 40px;
+			width: $cellWidth;
 
 			.resizeX {
-				float: right;
 				width: 4px;
-				height: 30px;
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				top: 0;
 
 				&:hover {
 					cursor: col-resize;
@@ -76,10 +82,11 @@ main {
 		}
 
 		.td {
-			display: table-cell;
 			border: $border black;
 			@include text-align;
-			white-space: nowrap;
+			min-width: 40px;
+			overflow: overlay;
+			width: $cellWidth;
 		}
 	}
 }
