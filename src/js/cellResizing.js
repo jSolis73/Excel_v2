@@ -6,13 +6,13 @@ export default function resizeCells() {
     const currentHeight = div.offsetHeight;
     const firstPointX = e.clientX;
     const firstPointY = e.clientY;
-    if (e.target.className === 'resizeX') {
+    if (e.target.className === 'table__tr__td-th__resizeX') {
       function onMouseMove(event) {
         div.parentNode.style.cursor = 'col-resize';
         const secondPointX = event.clientX;
         const newWidth = secondPointX - firstPointX;
         div.style.width = `${currentWidth + newWidth}px`;
-        const rows = document.getElementsByClassName('tr');
+        const rows = document.getElementsByClassName('table__tr');
         for (let i = 1; i < rows.length; i++) {
           function resize() {
             document.getElementById(`${divValue + i}`).style.width = div.style.width;
@@ -27,7 +27,7 @@ export default function resizeCells() {
       }
       document.addEventListener('mousemove', onMouseMove);
       document.addEventListener('mouseup', onMouseUp);
-    } else if (e.target.className === 'resizeY') {
+    } else if (e.target.className === 'table__tr__tr-th__resizeY') {
       function onMouseMove(event) {
         div.style.cursor = 'row-resize';
         const secondPointY = event.clientY;
