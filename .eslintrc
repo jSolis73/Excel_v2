@@ -6,7 +6,8 @@
 	
 	"rules": {
 	  "no-inner-declarations": 0,
-	  "no-plusplus": 0,
+		"no-plusplus": 0,
+		"func-names": 0,
   }
 }
 
