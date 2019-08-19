@@ -1,32 +1,28 @@
 $borderRadius: 5px;
 $border: 1px solid;
+$no-select: none;
+$cellWidth: 120px;
 @mixin text-align {
 	text-align: center;
 	vertical-align: middle;
 }
 
-main {
-	width: 100%;
-	border: $border black;
-	border-radius: $borderRadius;
-}
-
-.buttonMenu {
-	border: $border rgb(218, 10, 10);
+.button-menu {
+	// border: $border rgb(218, 10, 10);
 	height: 200px;
 }
 
-.formulaField {
-	border: $border green;
+.formula-field {
+	// border: $border green;
 	height: 50px;
-	width: 100%;
+	// width: 100%;
 
-	.formula {
+	.formula-field__formula {
 		width: 600px;
 		height: 30px;
 		border: $border #646363;
 		border-radius: $borderRadius;
-		margin: 6px auto;
+		margin-right: 100px;
 		display: block;
 		font-size: 20px;
 		padding: 3px 5px;
@@ -35,38 +31,69 @@ main {
 }
 
 .table {
-	border: $border  rgb(15, 15, 236);
-	background-color: #c7c3c3;
-	display: table;
-	width: 100%;
+	// border: $border  rgb(15, 15, 236);
+	// background-color: #c7c3c3;
+	display: inline-flex;
+	flex-direction: column;
+	overflow-x: auto;
+	min-width: 100%;
 
-	.tr {
-		display: table-row;
-		height: 30px;
-
-		.trTh {
-			display: table-cell;
-			border: $border black;
+	.table__tr {
+		display: flex;
+		height: 33px;
+		position: relative;
+		min-height: 20px;
+		
+		.table__tr__tr-th {
+			border: $border rgb(105, 105, 105);
 			@include text-align;
-			width: 16px;
+			width: 25px;
 			background-color: #ac93f0;
 			font-weight: bold;
+			user-select: $no-select;
 		}
 
-		.tdTh {
-			display: table-cell;
-			border: $border black;
+		.table__tr__tr-th__resizeY {
+			position: absolute;
+			height: 4px;
+			width: 24px;
+			bottom: 0;
+
+			&:hover {
+				cursor: row-resize;
+			}
+		}
+
+		.table__tr__td-th {
+			border: $border rgb(105, 105, 105);
 			@include text-align;
-			width: 92px;
 			background-color: #ac93f0;
 			font-weight: bold;
+			user-select: $no-select;
+			position: relative;
+			min-width: 40px;
+			width: $cellWidth;
+			
+
+			.table__tr__td-th__resizeX {
+				width: 4px;
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				top: 0;
+
+				&:hover {
+					cursor: col-resize;
+				}
+			}
 		}
 
-		.td {
-			display: table-cell;
-			border: $border black;
+		.table__tr__td {
+			border: $border rgb(105, 105, 105);
 			@include text-align;
-			white-space: nowrap;
+			min-width: 40px;
+			overflow: overlay;
+			width: $cellWidth;
 		}
 	}
 }
