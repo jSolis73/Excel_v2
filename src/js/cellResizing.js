@@ -14,7 +14,7 @@ export default function resizeCells() {
     const firstPointX = e.clientX;
     const firstPointY = e.clientY;
     function onMouseMove(event) {
-      if (e.target.className === 'table__tr__td-th__resizeX') {
+      if (e.target.className === 'table__resizeX') {
         div.parentNode.style.cursor = 'col-resize';
         const secondPointX = event.clientX;
         const newWidth = secondPointX - firstPointX;
@@ -28,7 +28,7 @@ export default function resizeCells() {
           }
           resize();
         }
-      } else if (e.target.className === 'table__tr__tr-th__resizeY') {
+      } else if (e.target.className === 'table__resizeY') {
         div.style.cursor = 'row-resize';
         div.style.cursor = 'default';
         const secondPointY = event.clientY;
