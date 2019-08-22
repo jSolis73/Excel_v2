@@ -1,49 +1,37 @@
+import { saveState } from './localStorage';
+
 export default function resizeCells() {
-  let data = {
-    tdTh: {},
-    td: {},
-    tr: {},
-  };
-  const stored = localStorage.getItem('data');
-  if (stored) data = JSON.parse(stored);
-  document.onmousedown = function clickDown(e) {
-    const div = e.target.parentNode;
-    const divValue = div.textContent;
-    const currentWidth = div.offsetWidth;
-    const currentHeight = div.offsetHeight;
-    const firstPointX = e.clientX;
-    const firstPointY = e.clientY;
-    function onMouseMove(event) {
-      if (e.target.className === 'table__resizeX') {
-        div.parentNode.style.cursor = 'col-resize';
-        const secondPointX = event.clientX;
-        const newWidth = secondPointX - firstPointX;
-        div.style.width = `${currentWidth + newWidth}px`;
-        data.tdTh[`${divValue}`] = div.style.width;
-        const rows = document.getElementsByClassName('table__tr');
-        for (let i = 1; i < rows.length; i++) {
-          function resize() {
-            document.getElementById(`${divValue + i}`).style.width = div.style.width;
-            data.td[`${divValue + i}`] = div.style.width;
-          }
-          resize();
-        }
-      } else if (e.target.className === 'table__resizeY') {
-        div.style.cursor = 'row-resize';
-        div.style.cursor = 'default';
-        const secondPointY = event.clientY;
-        const newHeight = secondPointY - firstPointY;
-        div.parentNode.style.height = `${currentHeight + newHeight}px`;
-        data.tr[`${div.parentNode.id}`] = `${currentHeight + newHeight}px`;
+  document.addEventListener('mousedown', (event) => {
+    const { resize } = event.target.dataset;
+    if (!resize) {
+      return;
+    }
+
+    let $columns;
+    const $parent = event.target.closest('[data-type="resizable"]');
+    const { offsetWidth, offsetHeight } = $parent;
+
+    if (resize === 'column') {
+      $columns = document.querySelectorAll(`[data-col="${$parent.id}"]`);
+    }
+
+    document.onmousemove = (e) => {
+      if (resize === 'column') {
+        const delta = e.clientX - event.clientX;
+        const width = offsetWidth + delta;
+        $parent.style.width = `${width}px`;
+        $columns.forEach(col => col.style.width = `${width}px`);
+        saveState('col-state', $parent.id, width);
+      } else if (resize === 'row') {
+        const delta = e.clientY - event.clientY;
+        const height = offsetHeight + delta;
+        $parent.style.height = `${height}px`;
+        saveState('row-state', $parent.id, height);
       }
-      localStorage.setItem('storage', JSON.stringify(data));
-    }
-    document.addEventListener('mousemove', onMouseMove);
-    function onMouseUp() {
-      div.parentNode.style.cursor = 'default';
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseup', onMouseUp);
-    }
-    document.addEventListener('mouseup', onMouseUp);
-  };
+    };
+    document.onmouseup = () => {
+      document.onmousemove = null;
+      document.onmouseup = null;
+    };
+  });
 }

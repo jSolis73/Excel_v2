@@ -1,16 +1,31 @@
-export default function getData() {
-  window.onload = function () {
-    if (localStorage) {
-      const parseObj = JSON.parse(localStorage.getItem('storage'));
-      for (let a = 0; a < Object.keys(parseObj.tdTh).length; a++) {
-        document.getElementById(`${Object.keys(parseObj.tdTh)[a]}`).style.width = parseObj.tdTh[Object.keys(parseObj.tdTh)[a]];
-      }
-      for (let b = 0; b < Object.keys(parseObj.td).length; b++) {
-        document.getElementById(`${Object.keys(parseObj.td)[b]}`).style.width = parseObj.td[Object.keys(parseObj.td)[b]];
-      }
-      for (let c = 0; c < Object.keys(parseObj.tr).length; c++) {
-        document.getElementById(`${Object.keys(parseObj.tr)[c]}`).style.height = parseObj.tr[Object.keys(parseObj.tr)[c]];
-      }
-    }
-  };
+export function getState(name, key, defaultValue) {
+  const state = localStorage.getItem(name)
+    ? JSON.parse(localStorage.getItem(name))
+    : {};
+
+  return state[key] ? state[key] : defaultValue;
+}
+
+export function saveState(name, key, value) {
+  const state = localStorage.getItem(name)
+    ? JSON.parse(localStorage.getItem(name))
+    : {};
+  state[key] = value;
+  localStorage.setItem(name, JSON.stringify(state));
+}
+
+export function saveText(name, id, value) {
+  const state = localStorage.getItem(name)
+    ? JSON.parse(localStorage.getItem(name))
+    : {};
+  state[id] = value;
+  localStorage.setItem(name, JSON.stringify(state));
+}
+
+export function getText(name, id) {
+  const state = localStorage.getItem(name)
+    ? JSON.parse(localStorage.getItem(name))
+    : {};
+
+  return state[id] ? state[id] : '';
 }
