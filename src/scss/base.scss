@@ -94,10 +94,11 @@ $cellWidth: 120px;
 			min-width: 40px;
 			overflow: overlay;
 			width: $cellWidth;
-
-			&:focus {
-				outline: 2px solid rgb(60, 13, 230);
-			}
+			cursor: default;
+		}
+		
+		.table__selected {
+			outline: 2px solid rgb(60, 13, 230);
 		}
 	}
 }
