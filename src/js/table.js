@@ -49,13 +49,14 @@ export default function createTable(parent, rowCount, cellCount) {
       const col = String.fromCharCode('A'.charCodeAt(0) + k);
       const width = `${getState('col-state', col, DEFAULT_WIDTH)}px`;
       const text = `${getState('text-state', col + j)}`;
+      const aligning = `${getState('text-align', col + j)}`;
       body += `
         <div
           class="table__td"
           contenteditable="true"
           data-col="${col}"
           id="${col + j}"
-          style="width: ${width}"
+          style="width: ${width}; text-align: ${aligning}"
           data-type="text"
         >
           ${text}
