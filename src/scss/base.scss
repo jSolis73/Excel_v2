@@ -108,6 +108,10 @@ $cellWidth: 120px;
 			overflow-x: hidden;
 			width: $cellWidth;
 			cursor: default;
+
+			&:hover {
+				cursor: default;
+			}
 		}
 		
 		.table__selected {
