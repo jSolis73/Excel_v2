@@ -1,11 +1,9 @@
-import { saveText } from './localStorage';
+import { saveState } from './localStorage';
 
 export default function saveContent() {
-  document.onkeyup = (event) => {
-    if (event.target.hasAttribute('data-text')) {
-      const textPlace = event.target;
-      const content = textPlace.textContent;
-      saveText('text-state', textPlace.id, content);
-    }
+  document.getElementById('table').oninput = (event) => {
+    const textPlace = event.target;
+    const content = textPlace.textContent;
+    saveState('text-state', textPlace.id, content);
   };
 }

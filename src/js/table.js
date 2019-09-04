@@ -1,4 +1,4 @@
-import { getState, getText } from './localStorage';
+import { getState } from './localStorage';
 
 const DEFAULT_HEIGHT = 33;
 const DEFAULT_WIDTH = 120;
@@ -48,15 +48,16 @@ export default function createTable(parent, rowCount, cellCount) {
     for (let k = 0; k < cellCount; k++) {
       const col = String.fromCharCode('A'.charCodeAt(0) + k);
       const width = `${getState('col-state', col, DEFAULT_WIDTH)}px`;
-      const text = `${getText('text-state', col + j)}`;
+      const text = `${getState('text-state', col + j)}`;
+      const aligning = `${getState('text-align', col + j)}`;
       body += `
         <div
           class="table__td"
           contenteditable="true"
           data-col="${col}"
           id="${col + j}"
-          style="width: ${width}"
-          data-text="text"
+          style="width: ${width}; text-align: ${aligning}"
+          data-type="text"
         >
           ${text}
         </div>

@@ -8,8 +8,20 @@ $cellWidth: 120px;
 }
 
 .button-menu {
-	// border: $border rgb(218, 10, 10);
-	height: 200px;
+	margin: 20px 0 0 30px;
+	height: 100px;
+	position: relative;
+
+	.button-menu__icon {
+		display: inline-flex;
+		width: 50px;
+		padding: 5px;
+		
+		&:hover {
+			background-color: rgb(196, 175, 255);
+			border-radius: 5px;
+		}
+	}
 }
 
 .formula-field {
@@ -93,11 +105,18 @@ $cellWidth: 120px;
 			@include text-align;
 			min-width: 40px;
 			overflow: overlay;
+			overflow-x: hidden;
 			width: $cellWidth;
+			cursor: default;
 
-			&:focus {
-				outline: 2px solid rgb(60, 13, 230);
+			&:hover {
+				cursor: default;
 			}
+		}
+		
+		.table__selected {
+			background-color: rgb(189, 217, 253);
+			overflow-x: hidden;
 		}
 	}
 }
