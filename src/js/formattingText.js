@@ -4,8 +4,8 @@ import { saveState } from './localStorage';
 export default function toAlign() {
   document.onclick = function (event) {
     const cells = getSelectCells();
-    if (event.target.hasAttribute('data-button')) {
-      const pos = event.target.getAttribute('data-button');
+    if (event.target.hasAttribute('data-value')) {
+      const pos = event.target.getAttribute('data-value');
       cells.forEach((c) => {
         const textCell = document.getElementById(`${c}`);
         textCell.style.textAlign = `${pos}`;

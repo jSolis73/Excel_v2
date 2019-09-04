@@ -8,7 +8,7 @@ export default function createIcons() {
         type="image"
 				src="./src/imgs/${icons[i]}.png"
         class="button-menu__icon"
-        data-button="${icons[i]}"
+        data-value="${icons[i]}"
 			/>
 		`;
     menu.innerHTML += button;
