@@ -6,7 +6,7 @@ export default function toAlign() {
   document.onclick = function (event) {
     if (event.target.hasAttribute('data-value')) {
       const pos = event.target.getAttribute('data-value');
-      cellsAr.cells.forEach(c => {
+      cellsAr.cells.forEach((c) => {
         c.el.style.textAlign = `${pos}`;
         c.el.setAttribute('data-align', `${pos}`);
         saveState('text-align', c.id, pos);

@@ -6,7 +6,7 @@ import createIcons from './js/alignButtons';
 import selectingCells from './js/selectingCells';
 import toAlign from './js/formattingText';
 
-createTable('#table', 20, 10);
+createTable('#table', 10, 20);
 createIcons();
 resizeCells();
 saveContent();
